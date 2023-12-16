@@ -1,7 +1,18 @@
+<p>
+    Está com preguiça? Compramos o equipamento por você!
+    <input type="checkbox" id="equipamento" unchecked="" wfd-id="id0"> <br>
+Se for um Conjurador quer que eu escolha suas magias?
+<input type="checkbox" id="conjurador" unchecked="" wfd-id="id1">
+<br>Quer se armar?
+<input type="checkbox" id="armamento" unchecked="" wfd-id="id2">
+<br> Homem <input type="checkbox" id="homem" unchecked="" wfd-id="id3"> Mulher<input type="checkbox" id="mulher" unchecked="" wfd-id="id4">
+<br>
+</p>
+<br>
 <button (click)="novoAventureuro()">Novo Aventureiro (Caves)</button>
 
 
-<h2>{{aventureiro.nome | uppercase}} Details</h2>
+<h2>{{aventureiro.nome | uppercase}}</h2>
 <div><span>Nome: </span>{{aventureiro.nome}}</div>
 <div><span>FOR: </span>{{aventureiro.atributos.for}}</div>
 <div><span>INT: </span>{{aventureiro.atributos.int}}</div>
