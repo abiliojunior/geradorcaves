@@ -1,16 +1,24 @@
 <p>
     Está com preguiça? Compramos o equipamento por você!
-    <input type="checkbox" id="equipamento" unchecked="" wfd-id="id0"> <br>
+    <input type="checkbox" [(ngModel)]="isCheckedEquipamentos"> <br>
 Se for um Conjurador quer que eu escolha suas magias?
-<input type="checkbox" id="conjurador" unchecked="" wfd-id="id1">
+<input type="checkbox" [(ngModel)]="isCheckedMagias">
 <br>Quer se armar?
-<input type="checkbox" id="armamento" unchecked="" wfd-id="id2">
-<br> Homem <input type="checkbox" id="homem" unchecked="" wfd-id="id3"> Mulher<input type="checkbox" id="mulher" unchecked="" wfd-id="id4">
+<input type="checkbox" [(ngModel)]="isCheckedArma">
+<br> Homem <input type="checkbox" [(ngModel)]="isCheckedHomem"> Mulher<input type="checkbox" [(ngModel)]="isCheckedMulher">
 <br>
 </p>
 <br>
 <button (click)="novoAventureuro()">Novo Aventureiro (Caves)</button>
 
+
+  <p>StatusEquipamento: {{ isCheckedEquipamentos ? 'Marcado' : 'Desmarcado' }}</p>
+  <p>StatusMAgia: {{ isCheckedMagias ? 'Marcado' : 'Desmarcado' }}</p>
+  <p>StatusArmas: {{ isCheckedArma ? 'Marcado' : 'Desmarcado' }}</p>
+  <p>StatusHomem: {{ isCheckedHomem ? 'Marcado' : 'Desmarcado' }}</p>
+  <p>StatusMulher: {{ isCheckedMulher ? 'Marcado' : 'Desmarcado' }}</p>
+  
+  
 
 
 <h2>{{aventureiro.nome | uppercase}}</h2>

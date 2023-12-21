@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { Aventureiro } from '../aventureiro';
 import { AventureiroService } from '../aventureiro.service';
-
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
@@ -9,10 +9,19 @@ import { AventureiroService } from '../aventureiro.service';
   templateUrl: './aventureiros.component.html',
   styleUrls: ['./aventureiros.component.css']
 })
+
+
 export class AventureirosComponent {
-
-
+  
+ 
   constructor(private aventureiroservice: AventureiroService){}
+
+  isCheckedHomem: boolean = false;
+  isCheckedMulher: boolean = false;
+  isCheckedEquipamentos: boolean = false;
+  isCheckedMagias: boolean = false;
+  isCheckedArma: boolean = false;
+
 
   aventureiro: Aventureiro = {
     nome: this.getNome(),
@@ -40,6 +49,14 @@ novoAventureuro(){
   this.aventureiro.atributos.con = this.randonAtribute();
   this.aventureiro.atributos.car = this.randonAtribute();
   this.aventureiro.nome= this.getNome();
+
+  this.isCheckedArma = false;
+  
+  console.log("aventureiro", (this.isCheckedEquipamentos?"com equipamento":"sem Equipamento"))
+  console.log("aventureiro", (this.isCheckedMagias?"com Magias":"Sem meagias"))
+  console.log("aventureiro", (this.isCheckedArma?"com arma":"desarmado"))
+  console.log("aventureiro", (this.isCheckedHomem?"Homem":"NAo Homem"))
+  console.log("aventureiro", (this.isCheckedMulher?"Mulher":"Não Mulher"))
 }
 
 
