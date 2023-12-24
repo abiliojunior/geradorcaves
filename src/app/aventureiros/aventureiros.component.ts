@@ -3,6 +3,8 @@ import { Aventureiro } from '../aventureiro';
 import { AventureiroService } from '../aventureiro.service';
 import { FormsModule } from '@angular/forms';
 
+import {MatDividerModule} from '@angular/material/divider';
+
 
 @Component({
   selector: 'app-aventureiros',
