@@ -13,13 +13,17 @@ import { NavbarComponent } from './navbar/navbar.component'
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ContratadosComponent } from './contratados/contratados.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AventureirosComponent,
-    NavbarComponent
+    NavbarComponent,
+    DashboardComponent,
+    ContratadosComponent
   ],
   imports: [
     BrowserModule,

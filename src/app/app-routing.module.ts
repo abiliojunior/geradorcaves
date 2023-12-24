@@ -3,9 +3,13 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AventureirosComponent } from './aventureiros/aventureiros.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ContratadosComponent } from './contratados/contratados.component';
 
 const routes: Routes= [
-  {path:'', component:AventureirosComponent}
+  {path:'', component:DashboardComponent},
+  {path:'aventureiro', component:AventureirosComponent},
+  {path:'contratados', component:ContratadosComponent},
 ]
 
 @NgModule({
