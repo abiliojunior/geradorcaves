@@ -1,4 +1,5 @@
 <div class="aventureiro-conteudo">
+  
 <p>
     Está com preguiça? Compramos o equipamento por você!
     <input type="checkbox" [(ngModel)]="isCheckedEquipamentos"> <br>
@@ -11,7 +12,7 @@ Se for um Conjurador quer que eu escolha suas magias?
 </p>
 <br>
 
-<button mat-raised-button color="primary" (click)="novoAventureuro()">Novo Aventureiro (Caves)</button>
+<button mat-raised-button color="primary" (click)="novoAventureiro()">Novo Aventureiro (Caves)</button>
 
 <br>
 <div class="stat-block">
@@ -19,7 +20,7 @@ Se for um Conjurador quer que eu escolha suas magias?
 	<div class="section-left">
 		<div class="creature-heading">
 			<h1>{{aventureiro.nome | uppercase}}</h1>
-			<h2>{{aventureiro.classe}}, Alinhamento</h2>
+			<h2>{{aventureiro.classe}}, {{aventureiro.alinhamento}}</h2>
 		</div> <!-- creature heading -->
 		<svg height="5" width="100%" class="tapered-rule">
 	    <polyline points="0,0 400,2.5 0,5"></polyline>
@@ -47,27 +48,27 @@ Se for um Conjurador quer que eu escolha suas magias?
 			<div class="abilities">
 				<div class="ability-strength">
 					<h4>FOR</h4>
-					<p>{{aventureiro.atributos.for}} (+2)</p>
+					<p>{{aventureiro.atributos.for}} ({{(aventureiro.modificadores_atributos.for>= 0 ? '+' : '')}}{{aventureiro.modificadores_atributos.for }})</p>
 				</div> <!-- ability strength -->
 				<div class="ability-dexterity">
 					<h4>DES</h4>
-					<p>{{aventureiro.atributos.con}} (+0)</p>
+					<p>{{aventureiro.atributos.des}} ({{(aventureiro.modificadores_atributos.des>= 0 ? '+' : '')}}{{aventureiro.modificadores_atributos.des }})</p>
 				</div> <!-- ability dexterity -->
 				<div class="ability-constitution">
 					<h4>CON</h4>
-					<p>{{aventureiro.atributos.con}} (+0)</p>
+					<p>{{aventureiro.atributos.con}} ({{(aventureiro.modificadores_atributos.con>= 0 ? '+' : '')}}{{aventureiro.modificadores_atributos.con }})</p>
 				</div> <!-- ability constitution -->
 				<div class="ability-intelligence">
 					<h4>INT</h4>
-					<p>{{aventureiro.atributos.int}} (+0)</p>
+					<p>{{aventureiro.atributos.int}} ({{(aventureiro.modificadores_atributos.int>= 0 ? '+' : '')}}{{aventureiro.modificadores_atributos.int }})</p>
 				</div> <!-- ability intelligence -->
 				<div class="ability-wisdom">
 					<h4>SAB</h4>
-					<p>{{aventureiro.atributos.sab}} (+0)</p>
+					<p>{{aventureiro.atributos.sab}}  ({{(aventureiro.modificadores_atributos.sab>= 0 ? '+' : '')}}{{aventureiro.modificadores_atributos.sab }})</p>
 				</div> <!-- ability wisdom -->
 				<div class="ability-charisma">
 					<h4>CAR</h4>
-					<p>{{aventureiro.atributos.car}} (+0)</p>
+					<p>{{aventureiro.atributos.car}}  ({{(aventureiro.modificadores_atributos.car>= 0 ? '+' : '')}}{{aventureiro.modificadores_atributos.car }})</p>
 				</div> <!-- ability charisma -->
 			</div> <!-- abilities -->
 			<svg height="5" width="100%" class="tapered-rule">
