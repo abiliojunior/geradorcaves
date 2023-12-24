@@ -1,3 +1,4 @@
+<div class="aventureiro-conteudo">
 <p>
     Está com preguiça? Compramos o equipamento por você!
     <input type="checkbox" [(ngModel)]="isCheckedEquipamentos"> <br>
@@ -9,23 +10,111 @@ Se for um Conjurador quer que eu escolha suas magias?
 <br>
 </p>
 <br>
-<button (click)="novoAventureuro()">Novo Aventureiro (Caves)</button>
 
+<button mat-raised-button color="primary" (click)="novoAventureuro()">Novo Aventureiro (Caves)</button>
 
-  <p>StatusEquipamento: {{ isCheckedEquipamentos ? 'Marcado' : 'Desmarcado' }}</p>
-  <p>StatusMAgia: {{ isCheckedMagias ? 'Marcado' : 'Desmarcado' }}</p>
-  <p>StatusArmas: {{ isCheckedArma ? 'Marcado' : 'Desmarcado' }}</p>
-  <p>StatusHomem: {{ isCheckedHomem ? 'Marcado' : 'Desmarcado' }}</p>
-  <p>StatusMulher: {{ isCheckedMulher ? 'Marcado' : 'Desmarcado' }}</p>
-  
-  
-
-
-<h2>{{aventureiro.nome | uppercase}}</h2>
-<div><span>Nome: </span>{{aventureiro.nome}}</div>
-<div><span>FOR: </span>{{aventureiro.atributos.for}}</div>
-<div><span>INT: </span>{{aventureiro.atributos.int}}</div>
-<div><span>Dex: </span>{{aventureiro.atributos.des}}</div>
-<div><span>Int </span>{{aventureiro.atributos.int}}</div>
-<div><span>Sab: </span>{{aventureiro.atributos.sab}}</div>
-<div><span>Car: </span>{{aventureiro.atributos.car}}</div>
+<br>
+<div class="stat-block">
+	<hr class="orange-border" />
+	<div class="section-left">
+		<div class="creature-heading">
+			<h1>{{aventureiro.nome | uppercase}}</h1>
+			<h2>Classe, Alinhamento</h2>
+		</div> <!-- creature heading -->
+		<svg height="5" width="100%" class="tapered-rule">
+	    <polyline points="0,0 400,2.5 0,5"></polyline>
+	  </svg>
+		<div class="top-stats">
+      <div class="property-line first">
+				<h4><strong>THAC0:</strong> </h4>
+				<p>18</p>
+			</div> <!-- property line -->
+			<div class="property-line first">
+				<h4>Armadura: </h4>
+				<p>18</p>
+			</div> <!-- property line -->
+			<div class="property-line">
+				<h4>Pontos de Vida: </h4>
+				<p>33 (6d8 + 6)</p>
+			</div> <!-- property line -->
+			<div class="property-line last">
+				<h4>Velocidade: </h4>
+				<p>6 mettros</p>
+			</div> <!-- property line -->
+			<svg height="5" width="100%" class="tapered-rule">
+	    <polyline points="0,0 400,2.5 0,5"></polyline>
+	  </svg>
+			<div class="abilities">
+				<div class="ability-strength">
+					<h4>FOR</h4>
+					<p>{{aventureiro.atributos.for}} (+2)</p>
+				</div> <!-- ability strength -->
+				<div class="ability-dexterity">
+					<h4>DES</h4>
+					<p>{{aventureiro.atributos.con}} (+0)</p>
+				</div> <!-- ability dexterity -->
+				<div class="ability-constitution">
+					<h4>CON</h4>
+					<p>{{aventureiro.atributos.con}} (+0)</p>
+				</div> <!-- ability constitution -->
+				<div class="ability-intelligence">
+					<h4>INT</h4>
+					<p>{{aventureiro.atributos.int}} (+0)</p>
+				</div> <!-- ability intelligence -->
+				<div class="ability-wisdom">
+					<h4>SAB</h4>
+					<p>{{aventureiro.atributos.sab}} (+0)</p>
+				</div> <!-- ability wisdom -->
+				<div class="ability-charisma">
+					<h4>CAR</h4>
+					<p>{{aventureiro.atributos.car}} (+0)</p>
+				</div> <!-- ability charisma -->
+			</div> <!-- abilities -->
+			<svg height="5" width="100%" class="tapered-rule">
+	  </svg>
+		</div> <!-- top stats -->
+		<svg height="5" width="100%" class="tapered-rule">
+	    <polyline points="0,0 400,2.5 0,5"></polyline>
+	  </svg>
+		<div class="property-block">
+			<h4><b>Caracteristicas: </b></h4>
+			<p>Pecualiaridades campo</p>
+		</div> <!-- property block -->
+		<div class="property-block">
+			<h4><b>Peculiaridade: </b></h4>
+			<p>Peculiaridade campo.</p>
+		</div> <!-- property block -->
+	</div> <!-- section left -->
+	<div class="section-right">
+		<div class="actions">
+			<h3>Itens</h3>
+			<div class="property-block">
+				<h4>Equipamentos: </h4>
+				<p>Espadas.</p>
+			</div> <!-- property block -->
+			<div class="property-block">
+				<h4>Magias: .</h4>
+				<p>Sono.</p>
+			</div> <!-- property block -->
+		</div> <!-- actions -->
+		<div class="actions">
+			<svg height="5" width="100%" class="tapered-rule">
+        <polyline points="0,0 400,2.5 0,5"></polyline>
+      </svg>
+			<div class="property-block">
+				<h4>Linguas:</h4>
+				<p>Negra de mordor.</p>
+			</div> <!-- property block -->
+			<div class="property-block">
+				<h4>Ouro: </h4>
+				<p>130 POs</p>
+			</div> <!-- property block -->
+      <div class="property-block">
+				<h4>Experiência: </h4>
+				<p>0 XP.</p>
+			</div> <!-- property block -->
+		</div> <!-- actions -->
+	</div> <!-- section right -->
+	<hr class="orange-border bottom" />
+</div>
+</div>
