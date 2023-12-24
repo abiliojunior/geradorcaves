@@ -27,6 +27,7 @@ export class AventureirosComponent {
 
   aventureiro: Aventureiro = {
     nome: this.getNome(),
+    classe: this.getclasse(),
     atributos: {
       for:this.randonAtribute(),
       int:this.randonAtribute(),
@@ -51,6 +52,7 @@ novoAventureuro(){
   this.aventureiro.atributos.con = this.randonAtribute();
   this.aventureiro.atributos.car = this.randonAtribute();
   this.aventureiro.nome= this.getNome();
+  this.aventureiro.classe= this.getclasse();
 
   this.isCheckedArma = false;
   
@@ -64,6 +66,11 @@ novoAventureuro(){
 
 getNome(): string {
   return this.aventureiroservice.getName();
+}
+
+getclasse():string {
+
+  return this.aventureiroservice.getClasse();
 }
 
 

@@ -8,5 +8,6 @@ export interface Aventureiro {
         con:number;
         car:number;
     };
+    classe: string;
 
 }

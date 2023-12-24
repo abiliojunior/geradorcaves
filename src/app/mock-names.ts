@@ -1,3 +1,11 @@
+export const classes: string[] = [
+    'Guerreiro',
+    'Ladino',
+    'Clarigo',
+    'Elfo',
+    'Anão',
+    'Pequenino'];
+
 export const names: string[] = [
     'Abel',
     'Abelardo',
