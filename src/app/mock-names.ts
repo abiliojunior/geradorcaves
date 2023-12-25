@@ -1,7 +1,7 @@
 export const classes: string[] = [
     'Guerreiro',
     'Ladino',
-    'Clarigo',
+    'Clerigo',
     'Elfo',
     'Anão',
     'Pequenino'];

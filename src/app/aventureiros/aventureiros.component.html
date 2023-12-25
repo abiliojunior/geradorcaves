@@ -28,19 +28,19 @@ Se for um Conjurador quer que eu escolha suas magias?
 		<div class="top-stats">
       <div class="property-line first">
 				<h4><strong>THAC0:</strong> </h4>
-				<p>18</p>
+				<p>{{aventureiro.classe=='Guerreiro'?'18(+1)':'19(0)'}}</p>
 			</div> <!-- property line -->
 			<div class="property-line first">
 				<h4>Armadura: </h4>
-				<p>10</p>
+				<p>{{aventureiro.ca}}</p>
 			</div> <!-- property line -->
 			<div class="property-line">
 				<h4>Pontos de Vida: </h4>
-				<p>33 (6d8 + 6)</p>
+				<p>{{aventureiro.pontosdevida}} ({{aventureiro.dadosdevida}})</p>
 			</div> <!-- property line -->
 			<div class="property-line last">
-				<h4>Velocidade: </h4>
-				<p>6 mettros</p>
+				<h4>Movimento: </h4>
+				<p>{{aventureiro.velocidade}} (Modificado pelo Peso)</p>
 			</div> <!-- property line -->
 			<svg height="5" width="100%" class="tapered-rule">
 	    <polyline points="0,0 400,2.5 0,5"></polyline>
@@ -79,11 +79,11 @@ Se for um Conjurador quer que eu escolha suas magias?
 	  </svg>
 		<div class="property-block">
 			<h4><b>Caracteristicas: </b></h4>
-			<p>Pecualiaridades campo</p>
+			<p>{{aventureiro.caracteristica}}</p>
 		</div> <!-- property block -->
 		<div class="property-block">
 			<h4><b>Peculiaridade: </b></h4>
-			<p>Peculiaridade campo.</p>
+			<p>{{aventureiro.peculiaridade}}.</p>
 		</div> <!-- property block -->
 	</div> <!-- section left -->
 	<div class="section-right">
@@ -91,11 +91,11 @@ Se for um Conjurador quer que eu escolha suas magias?
 			<h3>Itens</h3>
 			<div class="property-block">
 				<h4>Equipamentos: </h4>
-				<p>Espadas.</p>
+				<p>{{aventureiro.itens}}</p>
 			</div> <!-- property block -->
-			<div class="property-block">
-				<h4>Magias: .</h4>
-				<p>Sono.</p>
+			<div class="property-block" *ngIf="aventureiro.magias !== null && aventureiro.magias !== undefined && aventureiro.magias !== ''">
+				<h4>Magias:</h4>
+				<p>{{aventureiro.magias}}</p>
 			</div> <!-- property block -->
 		</div> <!-- actions -->
 		<div class="actions">
@@ -103,16 +103,16 @@ Se for um Conjurador quer que eu escolha suas magias?
         <polyline points="0,0 400,2.5 0,5"></polyline>
       </svg>
 			<div class="property-block">
-				<h4>Linguas:</h4>
-				<p>Negra de mordor.</p>
+				<h4>Linguas: </h4>
+				<p>{{aventureiro.linguas}}</p>
 			</div> <!-- property block -->
 			<div class="property-block">
 				<h4>Ouro: </h4>
-				<p>130 POs</p>
+				<p>{{aventureiro.dinheiro}} POs</p>
 			</div> <!-- property block -->
       <div class="property-block">
 				<h4>Experiência: </h4>
-				<p>0 XP.</p>
+				<p>{{aventureiro.experiencia}} XP.</p>
 			</div> <!-- property block -->
 		</div> <!-- actions -->
 	</div> <!-- section right -->

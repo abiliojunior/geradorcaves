@@ -17,6 +17,17 @@ export interface Aventureiro {
         des:number;
         con:number;
         car:number;
-    }
+    };
+    caracteristica:String;
+    peculiaridade:string;
+    dinheiro:number;
+    experiencia:number;
+    linguas: string;
+    itens:string;
+    ca:number;
+    pontosdevida:number;
+    dadosdevida:number;
+    magias:string;
+    velocidade:number;
 
 }
