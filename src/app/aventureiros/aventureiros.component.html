@@ -1,4 +1,5 @@
 <div class="aventureiro-conteudo">
+  
 <p>
     Está com preguiça? Compramos o equipamento por você!
     <input type="checkbox" [(ngModel)]="isCheckedEquipamentos"> <br>
@@ -11,7 +12,7 @@ Se for um Conjurador quer que eu escolha suas magias?
 </p>
 <br>
 
-<button mat-raised-button color="primary" (click)="novoAventureuro()">Novo Aventureiro (Caves)</button>
+<button mat-raised-button color="primary" (click)="novoAventureiro()">Novo Aventureiro (Caves)</button>
 
 <br>
 <div class="stat-block">
@@ -19,7 +20,7 @@ Se for um Conjurador quer que eu escolha suas magias?
 	<div class="section-left">
 		<div class="creature-heading">
 			<h1>{{aventureiro.nome | uppercase}}</h1>
-			<h2>Classe, Alinhamento</h2>
+			<h2>{{aventureiro.classe}}, {{aventureiro.alinhamento}}</h2>
 		</div> <!-- creature heading -->
 		<svg height="5" width="100%" class="tapered-rule">
 	    <polyline points="0,0 400,2.5 0,5"></polyline>
@@ -27,19 +28,19 @@ Se for um Conjurador quer que eu escolha suas magias?
 		<div class="top-stats">
       <div class="property-line first">
 				<h4><strong>THAC0:</strong> </h4>
-				<p>18</p>
+				<p>{{aventureiro.classe=='Guerreiro'?'18(+1)':'19(0)'}}</p>
 			</div> <!-- property line -->
 			<div class="property-line first">
 				<h4>Armadura: </h4>
-				<p>18</p>
+				<p>{{aventureiro.ca}}</p>
 			</div> <!-- property line -->
 			<div class="property-line">
 				<h4>Pontos de Vida: </h4>
-				<p>33 (6d8 + 6)</p>
+				<p>{{aventureiro.pontosdevida}} ({{aventureiro.dadosdevida}})</p>
 			</div> <!-- property line -->
 			<div class="property-line last">
-				<h4>Velocidade: </h4>
-				<p>6 mettros</p>
+				<h4>Movimento: </h4>
+				<p>{{aventureiro.velocidade}} (Modificado pelo Peso)</p>
 			</div> <!-- property line -->
 			<svg height="5" width="100%" class="tapered-rule">
 	    <polyline points="0,0 400,2.5 0,5"></polyline>
@@ -47,27 +48,27 @@ Se for um Conjurador quer que eu escolha suas magias?
 			<div class="abilities">
 				<div class="ability-strength">
 					<h4>FOR</h4>
-					<p>{{aventureiro.atributos.for}} (+2)</p>
+					<p>{{aventureiro.atributos.for}} ({{(aventureiro.modificadores_atributos.for>= 0 ? '+' : '')}}{{aventureiro.modificadores_atributos.for }})</p>
 				</div> <!-- ability strength -->
 				<div class="ability-dexterity">
 					<h4>DES</h4>
-					<p>{{aventureiro.atributos.con}} (+0)</p>
+					<p>{{aventureiro.atributos.des}} ({{(aventureiro.modificadores_atributos.des>= 0 ? '+' : '')}}{{aventureiro.modificadores_atributos.des }})</p>
 				</div> <!-- ability dexterity -->
 				<div class="ability-constitution">
 					<h4>CON</h4>
-					<p>{{aventureiro.atributos.con}} (+0)</p>
+					<p>{{aventureiro.atributos.con}} ({{(aventureiro.modificadores_atributos.con>= 0 ? '+' : '')}}{{aventureiro.modificadores_atributos.con }})</p>
 				</div> <!-- ability constitution -->
 				<div class="ability-intelligence">
 					<h4>INT</h4>
-					<p>{{aventureiro.atributos.int}} (+0)</p>
+					<p>{{aventureiro.atributos.int}} ({{(aventureiro.modificadores_atributos.int>= 0 ? '+' : '')}}{{aventureiro.modificadores_atributos.int }})</p>
 				</div> <!-- ability intelligence -->
 				<div class="ability-wisdom">
 					<h4>SAB</h4>
-					<p>{{aventureiro.atributos.sab}} (+0)</p>
+					<p>{{aventureiro.atributos.sab}}  ({{(aventureiro.modificadores_atributos.sab>= 0 ? '+' : '')}}{{aventureiro.modificadores_atributos.sab }})</p>
 				</div> <!-- ability wisdom -->
 				<div class="ability-charisma">
 					<h4>CAR</h4>
-					<p>{{aventureiro.atributos.car}} (+0)</p>
+					<p>{{aventureiro.atributos.car}}  ({{(aventureiro.modificadores_atributos.car>= 0 ? '+' : '')}}{{aventureiro.modificadores_atributos.car }})</p>
 				</div> <!-- ability charisma -->
 			</div> <!-- abilities -->
 			<svg height="5" width="100%" class="tapered-rule">
@@ -78,11 +79,11 @@ Se for um Conjurador quer que eu escolha suas magias?
 	  </svg>
 		<div class="property-block">
 			<h4><b>Caracteristicas: </b></h4>
-			<p>Pecualiaridades campo</p>
+			<p>{{aventureiro.caracteristica}}</p>
 		</div> <!-- property block -->
 		<div class="property-block">
 			<h4><b>Peculiaridade: </b></h4>
-			<p>Peculiaridade campo.</p>
+			<p>{{aventureiro.peculiaridade}}.</p>
 		</div> <!-- property block -->
 	</div> <!-- section left -->
 	<div class="section-right">
@@ -90,11 +91,11 @@ Se for um Conjurador quer que eu escolha suas magias?
 			<h3>Itens</h3>
 			<div class="property-block">
 				<h4>Equipamentos: </h4>
-				<p>Espadas.</p>
+				<p>{{aventureiro.itens}}</p>
 			</div> <!-- property block -->
-			<div class="property-block">
-				<h4>Magias: .</h4>
-				<p>Sono.</p>
+			<div class="property-block" *ngIf="aventureiro.magias !== null && aventureiro.magias !== undefined && aventureiro.magias !== ''">
+				<h4>Magias:</h4>
+				<p>{{aventureiro.magias}}</p>
 			</div> <!-- property block -->
 		</div> <!-- actions -->
 		<div class="actions">
@@ -102,16 +103,16 @@ Se for um Conjurador quer que eu escolha suas magias?
         <polyline points="0,0 400,2.5 0,5"></polyline>
       </svg>
 			<div class="property-block">
-				<h4>Linguas:</h4>
-				<p>Negra de mordor.</p>
+				<h4>Linguas: </h4>
+				<p>{{aventureiro.linguas}}</p>
 			</div> <!-- property block -->
 			<div class="property-block">
 				<h4>Ouro: </h4>
-				<p>130 POs</p>
+				<p>{{aventureiro.dinheiro}} POs</p>
 			</div> <!-- property block -->
       <div class="property-block">
 				<h4>Experiência: </h4>
-				<p>0 XP.</p>
+				<p>{{aventureiro.experiencia}} XP.</p>
 			</div> <!-- property block -->
 		</div> <!-- actions -->
 	</div> <!-- section right -->

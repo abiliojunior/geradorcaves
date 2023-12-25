@@ -15,6 +15,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ContratadosComponent } from './contratados/contratados.component';
 import { FooterComponent } from './footer/footer.component';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
+
 
 @NgModule({
   declarations: [
@@ -33,7 +36,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
